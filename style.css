@@ -1,0 +1,286 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0a0a23;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Header Navigation */
+header {
+  background: linear-gradient(90deg, #a45d55, #a45d55);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  height: 40px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffe6ec;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+.background-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+.background-stars2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* BIG Clouds */
+.cloud {
+  position: absolute;
+  bottom: 0;
+  width: 400px;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.cloud1 {
+  left: 0%;
+  animation: floatCloud 60s linear infinite;
+}
+
+.cloud2 {
+  left: 40%;
+  animation: floatCloud 80s linear infinite;
+}
+
+.cloud3 {
+  left: 70%;
+  animation: floatCloud 100s linear infinite;
+}
+
+@keyframes floatCloud {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-120vw); }
+}
+
+.hero-content {
+  position: absolute;
+  top: 15%;
+  z-index: 3;
+  animation: fadeUp 2s ease forwards;
+  opacity: 0;
+  width: 100%;
+}
+
+.hero-content h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.hero-content h1 {
+  font-size: 52px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+/* Updated Read More Button */
+.read-more {
+  position: absolute;
+  right: 10%;
+  top: 60%;
+  padding: 12px 26px;
+  border: 2px solid #fff;
+  background: #ffffff;
+  color: #dd8686;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 16px;
+  z-index: 4;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px #ffffff50;
+  margin-top: 300px;
+}
+
+.read-more:hover {
+  background-color: #dd8686;
+  color: #ffffff;
+  box-shadow: 0 0 15px #ff8fa3, 0 0 30px #fff;
+}
+
+.profile-pic {
+  position: absolute;
+  bottom: 80px;
+  height: 420px;
+  z-index: 3;
+  animation: floatIn 2s ease forwards;
+  opacity: 0;
+}
+
+@keyframes floatIn {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cards Section */
+.cards {
+  background-image: url('resources/night-stars2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+
+.divider {
+  width: 300px;
+  margin: 30px auto;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  animation: fadeInCard 1s ease-in;
+}
+
+.card img {
+  width: 200px;
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #dd8686, 0 0 40px #fff;
+}
+
+@keyframes fadeInCard {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .read-more {
+    top: 70%;
+    right: 5%;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .profile-pic {
+    height: 320px;
+    bottom: 60px;
+  }
+
+  nav ul {
+    gap: 15px;
+  }
+
+  nav a {
+    font-size: 13px;
+  }
+
+  .card img {
+    width: 160px;
+  }
+
+  .cloud {
+    width: 500px;
+    height: 900px;
+  }
+}
