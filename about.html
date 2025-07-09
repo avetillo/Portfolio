@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <title>About</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header>
+  <img src="resources/logo.png" alt="Logo" class="logo" height="40">
+  <nav>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> HOME</a></li>
+      <li><a href="about.html"><i class="fas fa-user"></i> ABOUT</a></li>
+      <li><a href="project.html"><i class="fas fa-code"></i> PROJECTS</a></li>
+      <li><a href="#"><i class="fas fa-wrench"></i> TOOLS</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="about-section">
+  <img src="resources/card-about.png" alt="About Card Design" class="about-card-img">
+  <div class="about-card">
+    <div class="about-info">
+      <img src="resources/profile.png" alt="profile" class="about-pic">
+      <p class="about-text">
+        Hi! I’m <strong>Aevi</strong>, a 19-year-old second-year Computer Engineering student at the University. I’m currently exploring opportunities in the <strong>Science, Information, and Technology</strong> industry.
+      </p>
+    </div>
+  </div>
+</section>
+  <script>
+    function copyPhoneNumber() {
+      const phoneNumber = '+639281219443';
+      navigator.clipboard.writeText(phoneNumber).then(() => {
+        alert('Phone number copied: ' + phoneNumber);
+      }).catch(err => {
+        alert('Failed to copy phone number');
+      });
+    }
+  </script>
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2025 Avegail Tillo. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/avegail.tillo/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+      <a href="mailto:avegailtillo@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/avetillo" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" ></i></a>
+      <a href="#" onclick="copyPhoneNumber()" title="Click to copy phone number">
+        <i class="fas fa-phone"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

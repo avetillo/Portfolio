@@ -5,21 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio</title>
   <link rel="stylesheet" href="style.css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- Navigation -->
-  <header>
-    <img src="resources/logo.png" alt="Logo" class="logo">
-    <nav>
-      <ul>
-        <li><a href="#">HOME</a></li>
-        <li><a href="#">ABOUT</a></li>
-        <li><a href="#">PROJECT</a></li>
-        <li><a href="#">TOOLS</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <img src="resources/logo.png" alt="Logo" class="logo" height="40">
+  <nav>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> HOME</a></li>
+      <li><a href="about.html"><i class="fas fa-user"></i> ABOUT</a></li>
+      <li><a href="project.html"><i class="fas fa-code"></i> PROJECTS</a></li>
+      <li><a href="#"><i class="fas fa-wrench"></i> TOOLS</a></li>
+    </ul>
+  </nav>
+</header>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -30,14 +32,16 @@
     <img src="resources/clodss.png" class="cloud cloud2" alt="cloud">
     <img src="resources/clodss.png" class="cloud cloud3" alt="cloud">
 
-    <div class="hero-content">
-      <a href="#" class="read-more">READ MORE</a>
-    </div>
+<div class="hero-content">
+  <a href="#cards" class="read-more">
+    <i class="fas fa-star twinkle-star"></i> SEEK THE STARS
+  </a>
+</div>
+
   </section>
 
   <!-- Cards Section -->
-   
-  <section class="cards">
+  <section class="cards" id="cards">
     <img src="resources/moon-divider.png" class="divider top" alt="divider">
     <div class="card-container">
       <div class="card">
@@ -52,6 +56,32 @@
     </div>
     <img src="resources/moon-divider.png" class="divider bottom" alt="divider">
   </section>
+  <script>
+    function copyPhoneNumber() {
+      const phoneNumber = '+639281219443';
+      navigator.clipboard.writeText(phoneNumber).then(() => {
+        alert('Phone number copied: ' + phoneNumber);
+      }).catch(err => {
+        alert('Failed to copy phone number');
+      });
+    }
+  </script>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2025 Avegail Tillo. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/avegail.tillo/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+      <a href="mailto:avegailtillo@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/avetillo" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" ></i></a>
+      <a href="#" onclick="copyPhoneNumber()" title="Click to copy phone number">
+        <i class="fas fa-phone"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
 
 </body>
 </html>

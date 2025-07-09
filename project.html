@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="resources/logo.png" alt="Logo" class="logo" height="40">
+  <nav>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> HOME</a></li>
+      <li><a href="about.html"><i class="fas fa-user"></i> ABOUT</a></li>
+      <li><a href="project.html"><i class="fas fa-code"></i> PROJECTS</a></li>
+      <li><a href="#"><i class="fas fa-wrench"></i> TOOLS</a></li>
+    </ul>
+  </nav>
+</header>
+
+<img src="resources/lotus-divider.png" alt="Lotus Divider" class="lotus-divider">
+
+<div class="view-all">
+  <a onclick="toggleAllProjects(true)"><i class="fas fa-th-large"></i> View All Projects</a>
+</div>
+<div class="go-back">
+  <a onclick="toggleAllProjects(false)"><i class="fas fa-arrow-left"></i> Go Back</a>
+</div>
+
+<section class="scrolling-wrapper" id="scrollView">
+  <i class="fas fa-chevron-left scroll-icon" onclick="scrollProjects(-300)"></i>
+  <div class="scrolling-cards" id="projectContainer"></div>
+  <i class="fas fa-chevron-right scroll-icon" onclick="scrollProjects(300)"></i>
+</section>
+
+
+<div class="all-projects" id="allProjects"></div>
+
+
+<script>
+const projects = [
+  { id: "arsinal", title: "ARSINAL", subtitle: "Arnis Turn-Based Card Game", tools: "Godot, MCTS, HMM", role: "Frontend, Animator", description: "A game developed using Godot that showcases Filipino Arnis sports...", image: "resources/card1.png" },
+  { id: "lakapati", title: "LAKAPATI", subtitle: "E-Commerce Platform", tools: "Vue, Tailwind, Firebase", role: "Full-Stack Dev", description: "A web app to support Filipino farmers sell online...", image: "resources/card2.png" },
+  { id: "aplk", title: "APLK", subtitle: "Apolaki Game Portal", tools: "HTML, CSS", role: "UI/UX, QA", description: "A student e-sports club portal with team info...", image: "resources/card3.png" },
+  { id: "trail", title: "TRAIL", subtitle: "Emergency Reporting System", tools: "Android Studio, Firebase", role: "Frontend & Map", description: "Tondo emergency app for reporting incidents...", image: "resources/card4.png" },
+  { id: "fveye", title: "FV-EYE", subtitle: "Facts Verifier App", tools: "Figma", role: "UI/UX Lead", description: "A digital mockup app to verify online information...", image: "resources/card5.png" },
+  { id: "lrtrs", title: "LRT-RS", subtitle: "Train Monitoring via FSM", tools: "JavaScript, Leaflet", role: "Full-Stack Dev", description: "Simulation system for LRT1/2 state tracking...", image: "resources/card6.png" },
+  { id: "er", title: "ER", subtitle: "Emergency Route Planner", tools: "JS, Leaflet, A*", role: "Routing Dev", description: "A* algorithm-based emergency route planner...", image: "resources/card7.png" },
+  { id: "agency7", title: "7th Agency", subtitle: "Job App DB System", tools: "PHP, MySQL", role: "Admin Side Dev", description: "CRUD-based management system for job seekers...", image: "resources/card8.png" }
+];
+
+const projectContainer = document.getElementById('projectContainer');
+const allProjects = document.getElementById('allProjects');
+
+projects.forEach(project => {
+  const card = document.createElement('div');
+  card.className = 'card project-card';
+  card.innerHTML = `<img src="${project.image}" alt="${project.title}">`;
+  card.querySelector('img').addEventListener('click', () => showModal(project));
+  projectContainer.appendChild(card);
+
+  const clone = card.cloneNode(true);
+  clone.querySelector('img').addEventListener('click', () => showModal(project));
+  allProjects.appendChild(clone);
+});
+
+function showModal(project) {
+  Swal.fire({
+    title: `<strong>${project.title}</strong>`,
+    html: `
+      <h6>${project.subtitle}</h6>
+      <p><strong>Tools:</strong> ${project.tools}</p>
+      <p><strong>Role:</strong> ${project.role}</p>
+      <p>${project.description}</p>
+    `,
+    width: '60em',
+    showCloseButton: true,
+    confirmButtonText: 'Close',
+    background: '#0a0a23',
+    color: '#fff'
+  });
+}
+
+function scrollProjects(val) {
+  document.getElementById('projectContainer').scrollBy({ left: val, behavior: 'smooth' });
+}
+
+function toggleAllProjects(showAll) {
+  document.getElementById('scrollView').style.display = showAll ? 'none' : 'block';
+  document.getElementById('allProjects').style.display = showAll ? 'flex' : 'none';
+  document.querySelector('.view-all').style.display = showAll ? 'none' : 'block';
+  document.querySelector('.go-back').style.display = showAll ? 'block' : 'none';
+}
+
+function copyPhoneNumber() {
+      const phoneNumber = '+639281219443';
+      navigator.clipboard.writeText(phoneNumber).then(() => {
+        alert('Phone number copied: ' + phoneNumber);
+      }).catch(err => {
+        alert('Failed to copy phone number');
+      });
+    }
+
+    function scrollTools(value) {
+  document.getElementById('toolsTrack').scrollBy({
+    left: value,
+    behavior: 'smooth'
+  });
+}
+
+</script>
+<img src="resources/lotus-divider2.png" alt="Lotus Divider" class="lotus-divider">
+
+<section class="tools-scroll-wrapper">
+  <i class="fas fa-chevron-left tool-scroll-icon left" onclick="scrollTools(-300)"></i>
+  <div class="tools-scroll-track" id="toolsTrack">
+    <i class="fab fa-godot" title="Godot Engine"></i>
+    <i class="fab fa-vuejs" title="Vue.js"></i>
+    <i class="fas fa-wind" title="Tailwind CSS"></i>
+    <i class="fas fa-fire" title="Firebase"></i>
+    <i class="fas fa-globe" title="Netlify"></i>
+    <i class="fab fa-android" title="Android Studio"></i>
+    <i class="fas fa-map-marked-alt" title="Google Maps API"></i>
+    <i class="fab fa-html5" title="HTML5"></i>
+    <i class="fab fa-css3-alt" title="CSS3"></i>
+    <i class="fab fa-figma" title="Figma"></i>
+    <i class="fab fa-js-square" title="JavaScript"></i>
+    <i class="fas fa-map" title="Leaflet.js"></i>
+    <i class="fab fa-php" title="PHP"></i>
+    <i class="fas fa-database" title="MySQL"></i>
+  </div>
+  <i class="fas fa-chevron-right tool-scroll-icon right" onclick="scrollTools(300)"></i>
+</section>
+
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2025 Avegail Tillo. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/avegail.tillo/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+      <a href="mailto:avegailtillo@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/avetillo" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" ></i></a>
+      <a href="#" onclick="copyPhoneNumber()" title="Click to copy phone number">
+        <i class="fas fa-phone"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
