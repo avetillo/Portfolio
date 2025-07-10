@@ -25,7 +25,7 @@ header {
 }
 
 .logo {
-  height: 40px;
+  height: 60px;
 }
 
 nav ul {
@@ -126,7 +126,7 @@ nav a:hover::after {
   z-index: 4;
   transition: all 0.4s ease;
   box-shadow: 0 0 10px #ffffff50;
-  margin-top: 300px;
+  margin-top: 200px;
 }
 
 .read-more:hover {
@@ -156,7 +156,7 @@ nav a:hover::after {
 }
 
 .divider {
-  width: 300px;
+  width: 500px;
   margin: 30px auto;
 }
 
@@ -400,7 +400,7 @@ footer .social-icons a {
 }
 
 footer .social-icons a:hover {
-  color: #fae36e;
+  color: #fadbaf;
 }
 
 
@@ -748,4 +748,9 @@ footer .social-icons a:hover {
   }
 }
 
+.swal2-popup.cute-alert {
+  border-radius: 1.5rem;
+  border: 2px solid #ffd6dc;
+  box-shadow: 0 0 15px rgba(255, 183, 197, 0.3);
+}
 

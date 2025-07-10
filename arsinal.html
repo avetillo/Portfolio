@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arsinal Project</title>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Slick Carousel -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-image: url('resources/night-stars3.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background-color: #2d1a0f;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li a {
+      color: #fff8dc;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .project-section {
+      display: flex;
+      justify-content: center;
+      padding: 30px 20px 50px;
+      gap: 40px;
+      flex-wrap: wrap;
+      position: relative;
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .top-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px 0;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+   .go-back-link {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease;
+}
+
+.go-back-link:hover {
+  color: #e2b76e;
+}
+
+    .date-tag {
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .arsinal-card {
+      text-align: center;
+    }
+
+.arsinal-img {
+  width: 220px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px #bb9657;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.arsinal-img:hover {
+  box-shadow: 0 0 25px 10px #855d17;
+  transform: scale(1.03);
+}
+
+
+    .links {
+      margin-top: 20px;
+    }
+
+.links .btn {
+  display: flex;
+  align-items: center;
+  background-color: #512f1c;
+  color: white;
+  padding: 10px 12px;
+  margin: 10px auto;
+  text-decoration: none;
+  border-radius: 8px;
+  width: 210px;
+  font-weight: bold;
+  transition: background 0.3s, box-shadow 0.2s;
+  gap: 10px;
+}
+
+.links .btn i {
+  font-size: 1.4rem; /* Larger icon */
+  flex-shrink: 0;
+}
+
+.links .btn span {
+  font-size: 0.95rem; /* Slightly smaller text */
+  flex-grow: 1;
+  text-align: center;
+}
+
+    .links .btn:hover {
+      background-color: #6b3f28;
+      box-shadow: 0 0 15px 5px #6b3f28;
+      transform: scale(0.98);
+    }
+
+    .project-description {
+      background-color: #4a2d1c;
+      padding: 25px;
+      border-radius: 20px;
+      max-width: 650px;
+      position: relative;
+      border: 2px solid #e2b76e;
+    }
+
+    .project-description h1 {
+      text-align: center;
+      font-family: 'Cinzel Decorative', cursive;
+      color: #fff8dc;
+      font-size: 1.8rem;
+      margin: 20px 0;
+      letter-spacing: 1px;
+    }
+
+    .arsinal-divider {
+      display: block;
+      margin: 0 auto;
+      height: 120px;
+      margin-bottom: -10px;
+    }
+
+    .video-container {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .project-text h3 {
+      margin: 15px 0 5px;
+      color: #fbd78d;
+    }
+
+    .gallery {
+      margin-top: 30px;
+    }
+
+    .gallery h3 {
+      text-align: center;
+      color: #fff8dc;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .carousel {
+      width: 100%;
+      margin: 20px auto;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 2px solid #d8b26e;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 8px;
+      font-size: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1a1a1a;
+      color: #fff8dc;
+    }
+    .video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <img src="resources/logo.png" alt="Logo" class="logo" height="40">
+    <nav>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> HOME</a></li>
+        <li><a href="about.html"><i class="fas fa-user"></i> ABOUT</a></li>
+        <li><a href="project.html"><i class="fas fa-code"></i> PROJECTS</a></li>
+        <li><a href="#"><i class="fas fa-wrench"></i> TOOLS</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <section class="project-section">
+
+    <div class="arsinal-card">
+      <img src="resources/card2.png" alt="Arsinal Card" class="arsinal-img">
+      <div class="links">
+        <a href="https://drive.google.com/drive/folders/1Tkq4Wbrrj_Dz-la0rK6bkspwXG066TSC?usp=drive_link" target="_blank" class="btn"><i class="fab fa-github"></i> ARSINAL GITHUB LINK</a>
+        <a href="https://drive.google.com/file/d/1A4TQl_4HxeJL33YKyKpzBILxxJQo0b-h/view?usp=sharing" class="btn download-btn"><i class="fas fa-download"></i> DOWNLOAD DESKTOP EXE</a>
+
+      </div>
+    </div>
+
+<div class="project-description">
+  <div class="top-bar">
+    <a href="project.html" class="go-back-link"><i class="fas fa-arrow-left"></i> Go Back to Projects</a>
+    <span class="date-tag"><i class="fas fa-calendar-alt"></i> June 2025</span>
+  </div>
+
+  <img src="resources/arsinal-divider.png" alt="Divider" class="arsinal-divider">
+
+<div class="video-container">
+  <iframe width="100%" height="300" 
+    src="https://www.youtube.com/embed/aRNGA0GqSOE" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+      <div class="project-text">
+        <h3>ABOUT THE PROJECT</h3>
+        <p>
+          A game developed using Godot, a free and open-source game engine that showcases Filipino Arnis Sports, a turn-based strategic card fighting game with an AI opponent created using Monte Carlo Tree Search and a Hidden Markov Model algorithm.
+        </p>
+
+        <h3>ROLE</h3>
+        <p>
+          Lead Frontend Developer, Animator, Backend Game/Animation Logic Contributor
+        </p>
+
+        <h3>TOOLS</h3>
+        <p>
+          Godot Engine, Monte Carlo Tree Search, Hidden Markov Model
+        </p>
+      </div>
+
+      <div class="gallery">
+        <h3>GALLERY</h3>
+        <div class="carousel">
+          <div><img src="resources/arsinal1.png" alt="Gallery 1"></div>
+          <div><img src="resources/arsinal2.png" alt="Gallery 2"></div>
+          <div><img src="resources/arsinal3.png" alt="Gallery 3"></div>
+          <div><img src="resources/arsinal4.png" alt="Gallery 3"></div>
+          <div><img src="resources/arsinal5.png" alt="Gallery 3"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Avegail Tillo. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/avegail.tillo/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="mailto:avegailtillo@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/avetillo" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="#" onclick="copyPhoneNumber()" title="Click to copy phone number"><i class="fas fa-phone"></i></a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script>
+    function copyPhoneNumber() {
+      const phoneNumber = '+639123789456';
+      navigator.clipboard.writeText(phoneNumber).then(() => {
+        Swal.fire({
+          title: 'Phone number copied!',
+          text: phoneNumber,
+          icon: 'success',
+          confirmButtonColor: '#e2b76e',
+          background: '#4a2d1c',
+          color: '#fff8dc',
+          iconColor: '#e2b76e',
+          confirmButtonText: 'OK',
+          customClass: {
+            popup: 'rounded-lg shadow'
+          }
+        });
+      }).catch(() => {
+        Swal.fire({
+          title: 'Oops!',
+          text: 'Failed to copy phone number.',
+          icon: 'error',
+          confirmButtonColor: '#e2b76e',
+          background: '#4a2d1c',
+          color: '#fff8dc'
+        });
+      });
+    }
+
+    $('.carousel').slick({
+      autoplay: true,
+      dots: true,
+      arrows: false,
+      infinite: true,
+      speed: 500,
+      fade: false,
+      cssEase: 'ease'
+    });
+    // SweetAlert on Download button
+  document.addEventListener("DOMContentLoaded", function () {
+    const downloadBtn = document.querySelector('.download-btn');
+
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const link = this.getAttribute('href');
+
+        Swal.fire({
+          title: 'Download Arsinal Desktop?',
+          text: 'Your download will begin shortly.',
+          icon: 'info',
+          showCancelButton: true,
+          confirmButtonColor: '#e2b76e',
+          cancelButtonColor: '#6b3f28',
+          background: '#4a2d1c',
+          color: '#fff8dc',
+          iconColor: '#e2b76e',
+          confirmButtonText: 'Download',
+          cancelButtonText: 'Cancel'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = link;
+          }
+        });
+      });
+    }
+  });
+  </script>
+</body>
+</html>

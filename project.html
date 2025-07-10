@@ -8,10 +8,6 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <style>
-    
-  </style>
 </head>
 <body>
 
@@ -42,20 +38,16 @@
   <i class="fas fa-chevron-right scroll-icon" onclick="scrollProjects(300)"></i>
 </section>
 
-
 <div class="all-projects" id="allProjects"></div>
-
 
 <script>
 const projects = [
-  { id: "arsinal", title: "ARSINAL", subtitle: "Arnis Turn-Based Card Game", tools: "Godot, MCTS, HMM", role: "Frontend, Animator", description: "A game developed using Godot that showcases Filipino Arnis sports...", image: "resources/card1.png" },
-  { id: "lakapati", title: "LAKAPATI", subtitle: "E-Commerce Platform", tools: "Vue, Tailwind, Firebase", role: "Full-Stack Dev", description: "A web app to support Filipino farmers sell online...", image: "resources/card2.png" },
-  { id: "aplk", title: "APLK", subtitle: "Apolaki Game Portal", tools: "HTML, CSS", role: "UI/UX, QA", description: "A student e-sports club portal with team info...", image: "resources/card3.png" },
-  { id: "trail", title: "TRAIL", subtitle: "Emergency Reporting System", tools: "Android Studio, Firebase", role: "Frontend & Map", description: "Tondo emergency app for reporting incidents...", image: "resources/card4.png" },
-  { id: "fveye", title: "FV-EYE", subtitle: "Facts Verifier App", tools: "Figma", role: "UI/UX Lead", description: "A digital mockup app to verify online information...", image: "resources/card5.png" },
-  { id: "lrtrs", title: "LRT-RS", subtitle: "Train Monitoring via FSM", tools: "JavaScript, Leaflet", role: "Full-Stack Dev", description: "Simulation system for LRT1/2 state tracking...", image: "resources/card6.png" },
-  { id: "er", title: "ER", subtitle: "Emergency Route Planner", tools: "JS, Leaflet, A*", role: "Routing Dev", description: "A* algorithm-based emergency route planner...", image: "resources/card7.png" },
-  { id: "agency7", title: "7th Agency", subtitle: "Job App DB System", tools: "PHP, MySQL", role: "Admin Side Dev", description: "CRUD-based management system for job seekers...", image: "resources/card8.png" }
+  { id: "arsinal", title: "ARSINAL", subtitle: "Arnis Turn-Based Card Game", tools: "Godot, MCTS, HMM", role: "Frontend, Animator", description: "A game developed using Godot that showcases Filipino Arnis sports...", image: "resources/card2.png" },
+  { id: "riverate", title: "Riverate", subtitle: "An Analysis on the Application of the XGBoost Algorithm to Drifting Data Streams", tools: "Android Studio, Firebase Realtime Database, Java", role: "Lead Frontend Developer, Backend Contributor (Database) ", description: "A mobile application developed to explore the effectiveness of the ...", image: "resources/card9.png" },
+  { id: "lakapati", title: "LAKAPATI", subtitle: "E-Commerce Platform", tools: "Vue, Tailwind, Firebase", role: "Full-Stack Dev", description: "A web app to support Filipino farmers sell online...", image: "resources/card1.png" },
+  { id: "aplk", title: "APLK", subtitle: "Apolaki Game Portal", tools: "HTML, CSS", role: "UI/UX, QA", description: "A student e-sports club portal with team info...", image: "resources/card4.png" },
+  { id: "trail", title: "TRAIL", subtitle: "Emergency Reporting System", tools: "Android Studio, Firebase", role: "Frontend & Map", description: "Tondo emergency app for reporting incidents...", image: "resources/card3.png" },
+  { id: "fveye", title: "FV-EYE", subtitle: "Facts Verifier App", tools: "Figma", role: "UI/UX Lead", description: "A digital mockup app to verify online information...", image: "resources/card5.png" }
 ];
 
 const projectContainer = document.getElementById('projectContainer');
@@ -65,30 +57,17 @@ projects.forEach(project => {
   const card = document.createElement('div');
   card.className = 'card project-card';
   card.innerHTML = `<img src="${project.image}" alt="${project.title}">`;
-  card.querySelector('img').addEventListener('click', () => showModal(project));
+  card.querySelector('img').addEventListener('click', () => {
+    window.location.href = `${project.id}.html`;
+  });
   projectContainer.appendChild(card);
 
   const clone = card.cloneNode(true);
-  clone.querySelector('img').addEventListener('click', () => showModal(project));
+  clone.querySelector('img').addEventListener('click', () => {
+    window.location.href = `${project.id}.html`;
+  });
   allProjects.appendChild(clone);
 });
-
-function showModal(project) {
-  Swal.fire({
-    title: `<strong>${project.title}</strong>`,
-    html: `
-      <h6>${project.subtitle}</h6>
-      <p><strong>Tools:</strong> ${project.tools}</p>
-      <p><strong>Role:</strong> ${project.role}</p>
-      <p>${project.description}</p>
-    `,
-    width: '60em',
-    showCloseButton: true,
-    confirmButtonText: 'Close',
-    background: '#0a0a23',
-    color: '#fff'
-  });
-}
 
 function scrollProjects(val) {
   document.getElementById('projectContainer').scrollBy({ left: val, behavior: 'smooth' });
@@ -102,22 +81,22 @@ function toggleAllProjects(showAll) {
 }
 
 function copyPhoneNumber() {
-      const phoneNumber = '+639281219443';
-      navigator.clipboard.writeText(phoneNumber).then(() => {
-        alert('Phone number copied: ' + phoneNumber);
-      }).catch(err => {
-        alert('Failed to copy phone number');
-      });
-    }
+  const phoneNumber = '+639281219443';
+  navigator.clipboard.writeText(phoneNumber).then(() => {
+    alert('Phone number copied: ' + phoneNumber);
+  }).catch(err => {
+    alert('Failed to copy phone number');
+  });
+}
 
-    function scrollTools(value) {
+function scrollTools(value) {
   document.getElementById('toolsTrack').scrollBy({
     left: value,
     behavior: 'smooth'
   });
 }
-
 </script>
+
 <img src="resources/lotus-divider2.png" alt="Lotus Divider" class="lotus-divider">
 
 <section class="tools-scroll-wrapper">
@@ -141,7 +120,6 @@ function copyPhoneNumber() {
   <i class="fas fa-chevron-right tool-scroll-icon right" onclick="scrollTools(300)"></i>
 </section>
 
-
 <!-- Footer -->
 <footer>
   <div class="footer-content">
@@ -156,7 +134,6 @@ function copyPhoneNumber() {
     </div>
   </div>
 </footer>
-
 
 </body>
 </html>
