@@ -2,60 +2,116 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About</title>
-  <link rel="stylesheet" href="style.css"/>
+
+  <!-- Font Awesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
-<header>
-  <img src="resources/logo.png" alt="Logo" class="logo" height="40">
-  <nav>
-    <ul>
-      <li><a href="index.html"><i class="fas fa-home"></i> HOME</a></li>
-      <li><a href="about.html"><i class="fas fa-user"></i> ABOUT</a></li>
-      <li><a href="project.html"><i class="fas fa-code"></i> PROJECTS</a></li>
-      <li><a href="#"><i class="fas fa-wrench"></i> TOOLS</a></li>
-    </ul>
-  </nav>
-</header>
+  <!-- Header -->
+  <header>
+    <img src="resources/logo.png" alt="Logo" class="logo" height="40" />
+    <nav>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> HOME</a></li>
+        <li><a href="about.html"><i class="fas fa-user"></i> ABOUT</a></li>
+        <li><a href="project.html"><i class="fas fa-code"></i> PROJECTS</a></li>
+        <li><a href="project.html#tools"><i class="fas fa-wrench"></i> TOOLS</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<section class="about-section">
-  <img src="resources/card-about.png" alt="About Card Design" class="about-card-img">
+ <section class="about-section">
   <div class="about-card">
     <div class="about-info">
-      <img src="resources/profile.png" alt="profile" class="about-pic">
-      <p class="about-text">
-        Hi! I’m <strong>Aevi</strong>, a 19-year-old second-year Computer Engineering student at the University. I’m currently exploring opportunities in the <strong>Science, Information, and Technology</strong> industry.
-      </p>
+      <img src="resources/profile.png" alt="Profile" class="about-pic" />
+
+      <div class="info-block">
+        <i class="fas fa-user-graduate"></i>
+        <p>Hi! I’m <strong>Avegail</strong>, a 21-year-old third-year Computer Science student at the Polytechnic University of the Philippines. I’m currently exploring opportunities in the <strong>Science, Information, and Technology</strong> industry.</p>
+      </div>
+
+      <div class="info-block">
+        <i class="fas fa-code"></i>
+        <p>I'm a frontend enthusiast who enjoys bringing digital designs to life through thoughtful user interfaces. I'm moderately skilled in programming, driven by a deep passion for learning and improving.</p>
+      </div>
+
+      <div class="info-block">
+        <i class="fas fa-lightbulb"></i>
+        <p>I find joy in watching ideas take shape on screen — turning sketches and concepts into interactive experiences. That spark of creativity keeps me going.</p>
+      </div>
+
+      <div class="info-block">
+        <i class="fas fa-heart"></i>
+        <p>I believe in creativity, growth, and the quiet power of determination. One phrase that inspires me is <em>Hiraya Manawari</em> — may the dreams of your heart come true.</p>
+      </div>
     </div>
   </div>
 </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Avegail Tillo. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/avegail.tillo/" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="mailto:avegailtillo@gmail.com">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://github.com/avetillo" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" onclick="copyPhoneNumber()" title="Click to copy phone number">
+          <i class="fas fa-phone"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
   <script>
     function copyPhoneNumber() {
-      const phoneNumber = '+639281219443';
-      navigator.clipboard.writeText(phoneNumber).then(() => {
-        alert('Phone number copied: ' + phoneNumber);
-      }).catch(err => {
-        alert('Failed to copy phone number');
+      const phoneNumber = '09281219443';
+      
+    navigator.clipboard.writeText(phoneNumber).then(() => {
+      Swal.fire({
+        title: 'Phone Number Copied',
+        text: `The number ${phoneNumber} has been successfully copied to your clipboard.`,
+        icon: 'success',
+        background: '#fff9f9',
+        color: '#dd8686',
+        iconColor: '#dd8686',
+        confirmButtonColor: '#dd8686',
+        confirmButtonText: 'Thank you',
+        customClass: {
+          popup: 'cute-alert'
+        }
       });
-    }
+    }).catch(() => {
+      Swal.fire({
+        title: 'Copy Unsuccessful',
+        text: 'We encountered an issue while copying the phone number. Please try again.',
+        icon: 'error',
+        background: '#fff9f9',
+        color: '#dd8686',
+        confirmButtonColor: '#f87171',
+        confirmButtonText: 'Close',
+        customClass: {
+          popup: 'cute-alert'
+        }
+      });
+    });
+  }
   </script>
-<!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <p>&copy; 2025 Avegail Tillo. All rights reserved.</p>
-    <div class="social-icons">
-      <a href="https://www.facebook.com/avegail.tillo/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
-      <a href="mailto:avegailtillo@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://github.com/avetillo" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" ></i></a>
-      <a href="#" onclick="copyPhoneNumber()" title="Click to copy phone number">
-        <i class="fas fa-phone"></i>
-      </a>
-    </div>
-  </div>
-</footer>
 
 </body>
 </html>

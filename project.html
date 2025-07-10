@@ -8,6 +8,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -18,7 +20,7 @@
       <li><a href="index.html"><i class="fas fa-home"></i> HOME</a></li>
       <li><a href="about.html"><i class="fas fa-user"></i> ABOUT</a></li>
       <li><a href="project.html"><i class="fas fa-code"></i> PROJECTS</a></li>
-      <li><a href="#"><i class="fas fa-wrench"></i> TOOLS</a></li>
+      <li><a href="#tools"><i class="fas fa-wrench"></i> TOOLS</a></li>
     </ul>
   </nav>
 </header>
@@ -80,15 +82,38 @@ function toggleAllProjects(showAll) {
   document.querySelector('.go-back').style.display = showAll ? 'block' : 'none';
 }
 
-function copyPhoneNumber() {
-  const phoneNumber = '+639281219443';
-  navigator.clipboard.writeText(phoneNumber).then(() => {
-    alert('Phone number copied: ' + phoneNumber);
-  }).catch(err => {
-    alert('Failed to copy phone number');
-  });
-}
-
+    function copyPhoneNumber() {
+      const phoneNumber = '09281219443';
+      
+    navigator.clipboard.writeText(phoneNumber).then(() => {
+      Swal.fire({
+        title: 'Phone Number Copied',
+        text: `The number ${phoneNumber} has been successfully copied to your clipboard.`,
+        icon: 'success',
+        background: '#fff9f9',
+        color: '#dd8686',
+        iconColor: '#dd8686',
+        confirmButtonColor: '#dd8686',
+        confirmButtonText: 'Thank you',
+        customClass: {
+          popup: 'cute-alert'
+        }
+      });
+    }).catch(() => {
+      Swal.fire({
+        title: 'Copy Unsuccessful',
+        text: 'We encountered an issue while copying the phone number. Please try again.',
+        icon: 'error',
+        background: '#fff9f9',
+        color: '#dd8686',
+        confirmButtonColor: '#f87171',
+        confirmButtonText: 'Close',
+        customClass: {
+          popup: 'cute-alert'
+        }
+      });
+    });
+  }
 function scrollTools(value) {
   document.getElementById('toolsTrack').scrollBy({
     left: value,
@@ -99,7 +124,7 @@ function scrollTools(value) {
 
 <img src="resources/lotus-divider2.png" alt="Lotus Divider" class="lotus-divider">
 
-<section class="tools-scroll-wrapper">
+<section class="tools-scroll-wrapper" id="tools">
   <i class="fas fa-chevron-left tool-scroll-icon left" onclick="scrollTools(-300)"></i>
   <div class="tools-scroll-track" id="toolsTrack">
     <i class="fab fa-godot" title="Godot Engine"></i>

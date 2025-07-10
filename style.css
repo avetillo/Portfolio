@@ -220,9 +220,8 @@ nav a:hover::after {
   width: 100%;
   box-shadow: 0 0 20px #fff3;
   gap: 40px;
-  height: 300px;
+  height: 600px;
   margin-top: 200px;
-  margin-right: 10%;
 }
 
 .about-card-img {
@@ -238,6 +237,7 @@ nav a:hover::after {
   flex: 1;
   text-align: center;
   position: relative;
+  margin-top: 70px;
 }
 
 .about-pic {
@@ -247,7 +247,7 @@ nav a:hover::after {
   border-radius: 50%;
   border: 4px solid #fff;
   position: absolute;
-  top: -170px;
+  top: -240px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #fff;
@@ -259,6 +259,7 @@ nav a:hover::after {
   font-size: 18px;
   color: #ffffff;
   line-height: 1.6;
+  text-align: left;
 }
 
 /* Projects Section */
@@ -752,5 +753,94 @@ footer .social-icons a:hover {
   border-radius: 1.5rem;
   border: 2px solid #ffd6dc;
   box-shadow: 0 0 15px rgba(255, 183, 197, 0.3);
+}
+
+/* Better About Section Responsiveness */
+@media (max-width: 1024px) {
+  .about-card {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    margin: 150px 20px 50px;
+    padding: 40px 20px;
+  }
+
+  .about-card-img {
+    margin: 0 auto 30px;
+    width: 180px;
+  }
+
+  .about-pic {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    margin: 0 auto 20px;
+  }
+
+  .about-info {
+    text-align: center;
+  }
+
+  .about-text {
+    margin-top: 0;
+  }
+}
+
+/* Soft hover glow for social icons */
+footer .social-icons a {
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+footer .social-icons a:hover {
+  color: #ff8fa3;
+  text-shadow: 0 0 10px #ff8fa360;
+}
+
+/* Subtle pulse for profile image */
+.about-pic {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 12px #ffbcc5, 0 0 24px #fff3;
+  }
+  50% {
+    box-shadow: 0 0 20px #ffd6dc, 0 0 35px #fff;
+  }
+}
+
+.info-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: #2a2a4f;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: left;
+}
+
+.info-block:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px  #f7f7f7;
+}
+
+.info-block i {
+  font-size: 1.8rem;
+  color: #f7f7f7;
+  flex-shrink: 0;
+  margin-top: 0.4rem;
+}
+
+.info-block p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f1f1f1;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
 }
 
