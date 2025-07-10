@@ -110,12 +110,12 @@
 .arsinal-img {
   width: 220px;
   border-radius: 15px;
-  box-shadow: 0 0 25px #ab3a3a;
+  box-shadow: 0 0 25px #2e4b8a;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .arsinal-img:hover {
-  box-shadow: 0 0 25px 10px #ab3a3a;
+  box-shadow: 0 0 25px 10px #2e4b8a;
   transform: scale(1.03);
 }
 
@@ -127,7 +127,7 @@
 .links .btn {
   display: flex;
   align-items: center;
-  background-color: #8d1818;
+  background-color: #17284c;
   color: white;
   padding: 10px 12px;
   margin: 10px auto;
@@ -151,13 +151,13 @@
 }
 
     .links .btn:hover {
-      background-color: #8d1818;
-      box-shadow: 0 0 15px 5px #ab3a3a;
+      background-color: #17284c;
+      box-shadow: 0 0 15px 5px #2e4b8a;
       transform: scale(0.98);
     }
 
     .project-description {
-      background-color: #8d1818;
+      background-color: #17284c;
       padding: 25px;
       border-radius: 20px;
       max-width: 650px;
@@ -226,6 +226,19 @@
       background-color: #1a1a1a;
       color: #fff8dc;
     }
+            .video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
   </style>
 </head>
 
@@ -247,28 +260,29 @@
   <section class="project-section">
 
     <div class="arsinal-card">
-      <img src="resources/card3.png" alt="Arsinal Card" class="arsinal-img">
+      <img src="resources/card9.png" alt="Arsinal Card" class="arsinal-img">
       <div class="links">
-        <a href="https://github.com/avetillo/TRAIL-System" target="_blank" class="btn"><i class="fab fa-github"></i> TRAIL APP GITHUB LINK</a>
-        <a href="resources/TRAIL SYSTEM.apk" class="btn download-btn"><i class="fas fa-download"></i> DOWNLOAD ANDROID APK</a>
-
+        <a href="https://drive.google.com/drive/folders/1ZVtw0LP6qaaePdV_xD_yIwX6ORHhPaNj?usp=drive_link" target="_blank" class="btn"><i class="fab fa-github"></i> RIVERATE GITHUB LINK</a>
       </div>
     </div>
 
 <div class="project-description">
   <div class="top-bar">
     <a href="project.html" class="go-back-link"><i class="fas fa-arrow-left"></i> Go Back to Projects</a>
-    <span class="date-tag"><i class="fas fa-calendar-alt"></i> February 2025</span>
+    <span class="date-tag"><i class="fas fa-calendar-alt"></i> July 2025</span>
   </div>
 
-  <img src="resources/arsinal-divider.png" alt="Divider" class="arsinal-divider">
+  <img src="resources/arsinal-divider1.png" alt="Divider" class="arsinal-divider">
 
-  <div class="video-container">
-    <video width="100%" height="300" controls>
-      <source src="resources/trail.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
+<div class="video-container">
+  <iframe width="100%" height="300"
+    src="https://www.youtube.com/embed/mgGC4BeSCTQ"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
 
       <div class="project-text">
         <h3>ABOUT THE PROJECT</h3>
@@ -290,15 +304,7 @@
       <div class="gallery">
         <h3>GALLERY</h3>
         <div class="carousel">
-        <div><img src="resources/trail1.png" alt="Gallery 1"></div>
-        <div><img src="resources/trail (1).png" alt="Gallery 2"></div>
-        <div><img src="resources/trail (2).png" alt="Gallery 3"></div>
-        <div><img src="resources/trail (3).png" alt="Gallery 4"></div>
-        <div><img src="resources/trail (4).png" alt="Gallery 5"></div>
-        <div><img src="resources/trail (5).png" alt="Gallery 6"></div>
-        <div><img src="resources/trail (6).png" alt="Gallery 7"></div>
-        <div><img src="resources/trail (7).png" alt="Gallery 8"></div>
-        <div><img src="resources/trail (8).png" alt="Gallery 9"></div>
+        <div><img src="resources/riverate1.png" alt="Gallery 1"></div>
 
         </div>
       </div>
@@ -328,7 +334,7 @@
           text: phoneNumber,
           icon: 'success',
           confirmButtonColor: '#e2b76e',
-          background: '#8d1818',
+          background: '#17284c',
           color: '#fff8dc',
           iconColor: '#e2b76e',
           confirmButtonText: 'OK',
@@ -342,7 +348,7 @@
           text: 'Failed to copy phone number.',
           icon: 'error',
           confirmButtonColor: '#e2b76e',
-          background: '#8d1818',
+          background: '#17284c',
           color: '#fff8dc'
         });
       });
@@ -357,35 +363,6 @@
       fade: false,
       cssEase: 'ease'
     });
-    // SweetAlert on Download button
-  document.addEventListener("DOMContentLoaded", function () {
-    const downloadBtn = document.querySelector('.download-btn');
-
-    if (downloadBtn) {
-      downloadBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        const link = this.getAttribute('href');
-
-        Swal.fire({
-          title: 'Download Trail Application?',
-          text: 'Your download will begin shortly.',
-          icon: 'info',
-          showCancelButton: true,
-          confirmButtonColor: '#e2b76e',
-          cancelButtonColor: '#6b3f28',
-          background: '#8d1818',
-          color: '#fff8dc',
-          iconColor: '#e2b76e',
-          confirmButtonText: 'Download',
-          cancelButtonText: 'Cancel'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            window.location.href = link;
-          }
-        });
-      });
-    }
-  });
   </script>
 </body>
 </html>
